@@ -7,6 +7,7 @@ class Menu
   end
 
   def print_menu
+    puts "Menu"
     @menu.each { |dish, price|
       puts "#{dish} : " + "£%.2f " % "#{price}".ljust(25)
     }
@@ -17,7 +18,8 @@ class Menu
     puts ""
     puts "Please select from the following options"
     puts "1. Print menu"
-    puts "2. Exit"
+    puts "2. Select dishes"
+    puts "3. Exit"
   end
 
   def interaction(selection)
@@ -25,6 +27,8 @@ class Menu
   when "1"
     print_menu
   when "2"
+    select_dishes
+  when "3"
     exit
   else
     puts "Input error, please try again"
@@ -36,6 +40,14 @@ class Menu
       restaurant_info
       interaction(STDIN.gets.chomp)
     end
+  end
+
+  def select_dishes
+    "Puts please input your dish choices"
+    answer = STDIN.gets.chomp
+    @order = Order.new(answer)
+    puts "Your order of #{answer} was succesful."
+    puts "Please wait for text confirmation from the restaurant"
   end
 
 end
