@@ -22,7 +22,7 @@ class Menu
   end
 
   def place_order(dish, quantity)
-      @order.add(dish, quantity)
+    @order.add(dish, quantity)
   end
 
   def cost(dish)
@@ -44,7 +44,6 @@ private
     puts "Our Menu".center(35)
     puts "=================================="
   end
-
 
   # def not_found?(dish)
   #   !@dishes[dish].nil?

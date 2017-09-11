@@ -37,7 +37,8 @@ class Order
 
   def print_order_list
     @order.each { |dish, quantity|
-      puts "#{dish} x #{quantity}"}
+      puts "#{dish} x #{quantity}"
+    }
   end
 
   def print_order_price

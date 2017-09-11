@@ -13,9 +13,9 @@ RSpec.describe Menu do
             sweet_and_sour_chicken: 5.60,
             beef_with_black_bean: 5.80,
             crispy_beef: 5.80 }
-          end
+  end
   it 'contains a list of dishes with prices' do
-    expect(subject.dishes).to eq (dishes)
+    expect(subject.dishes).to eq dishes
   end
   it 'prints a list of dishes with prices' do
     expect(subject.print_menu).to eq ({ crispy_duck: 7.50,
@@ -39,7 +39,7 @@ RSpec.describe Menu do
   end
 
   it "calculates the cost of an item" do
-    expect(menu.cost(:crispy_beef)).to eq (dishes[:crispy_beef])
+    expect(menu.cost(:crispy_beef)).to eq dishes[:crispy_beef]
   end
 
   it 'gives the price of an order' do
