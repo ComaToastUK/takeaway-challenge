@@ -1,4 +1,6 @@
 require "twilio-ruby"
+require 'dotenv/load'
+
 
 class Order
 
@@ -47,10 +49,10 @@ class Order
   end
 
   def text_confirmation
-    @account_sid = "AC3ea1a60e38a736ae63d90aaf9af49244"
-    @auth_token = "ca7a4061d3f1dc10973c1bd64d767474"
-    client = Twilio::REST::Client.new(config[:account_sid], config[:auth_token])
-    client.messages.create({
+    @account_sid = ENV["TWILIO_ACCOUNT_SID"]
+    @auth_token = ENV["TWILIO_AUTH_TOKEN"]
+    client = Twilio::REST::Client.new(config=@account_sid, config=@auth_token)
+    client.api.messages.create({
       :from => '+441446688202',
       :to =>  '+447969528465',
       :body => 'Your order from Jim\'s will arrive in 1 hour'
